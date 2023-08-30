@@ -1,0 +1,4 @@
+---
+gemini_domain: "{{hostname}}"
+proxy_port: 80
+september_css: https://vanillacss.com/vanilla.css

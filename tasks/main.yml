@@ -1,0 +1,43 @@
+---
+- name: Creating September User
+  user:
+    name: september
+    system: true
+  register: created_user
+
+- name: Create September SystemD unit
+  template:
+    src: files/september.service.j2
+    dest: /lib/systemd/system/september.service
+
+- name: Create September application folder
+  file:
+    path: "/usr/share/september"
+    state: directory
+    owner: "root"
+    group: "september"
+    mode: "u=rwX,g=rwX"
+
+- name: Install September server
+  ansible.builtin.copy:
+    src: files/september-{{ ansible_architecture }}
+    dest: /usr/share/september/september
+    mode: u=rwx,g=rx,o=x
+
+- name: Configure September proxy
+  template:
+    src: files/september.conf.j2
+    dest: /usr/share/september/.env
+
+- name: Allow September to run on port 80
+  community.general.capabilities:
+    path: /usr/share/september/september
+    capability: cap_net_bind_service+eip
+    state: present
+
+- name: Starting September server
+  systemd:
+    state: restarted
+    name: september
+    enabled: true
+    daemon_reload: yes

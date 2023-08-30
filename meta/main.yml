@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Vincent Bolduc
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  platforms: all
+
+  galaxy_tags: 
+    - September
+    - gemini
+    - proxy
+
+dependencies: []

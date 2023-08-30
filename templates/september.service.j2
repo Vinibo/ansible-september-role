@@ -1,0 +1,14 @@
+[Unit]
+Description=September Gemini proxy Server
+After=network.target
+
+[Service]
+Type=simple
+User=agate
+Group=agate
+Restart=on-failure
+WorkingDirectory=/usr/share/september
+ExecStart=/usr/share/september/september
+
+[Install]
+WantedBy=multi-user.target
