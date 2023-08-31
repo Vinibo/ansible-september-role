@@ -1,17 +1,17 @@
 ---
 - name: Creating September User
-  user:
+  ansible.builtin.user:
     name: september
     system: true
   register: created_user
 
 - name: Create September SystemD unit
-  template:
+  ansible.builtin.template:
     src: files/september.service.j2
     dest: /lib/systemd/system/september.service
 
 - name: Create September application folder
-  file:
+  ansible.builtin.file:
     path: "/usr/share/september"
     state: directory
     owner: "root"
@@ -25,7 +25,7 @@
     mode: u=rwx,g=rx,o=x
 
 - name: Configure September proxy
-  template:
+  ansible.builtin.template:
     src: files/september.conf.j2
     dest: /usr/share/september/.env
 
@@ -36,8 +36,8 @@
     state: present
 
 - name: Starting September server
-  systemd:
+  ansible.builtin.systemd:
     state: restarted
     name: september
     enabled: true
-    daemon_reload: yes
+    daemon_reload: true

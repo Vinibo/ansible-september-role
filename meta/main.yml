@@ -1,15 +1,14 @@
+---
+dependencies: []
+
 galaxy_info:
+  role_name: september
+  namespace: vinibo
+  description: The Gemini-to-HTTP proxy September
   author: Vincent Bolduc
-
   license: MIT
-
-  min_ansible_version: 2.1
-
-  platforms: all
-
-  galaxy_tags: 
-    - September
+  galaxy_tags:
+    - september
     - gemini
     - proxy
-
-dependencies: []
+  min_ansible_version: "2.1"
