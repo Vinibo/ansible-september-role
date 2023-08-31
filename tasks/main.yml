@@ -7,7 +7,7 @@
 
 - name: Create September SystemD unit
   ansible.builtin.template:
-    src: files/september.service.j2
+    src: templates/september.service.j2
     dest: /lib/systemd/system/september.service
 
 - name: Create September application folder
@@ -26,7 +26,7 @@
 
 - name: Configure September proxy
   ansible.builtin.template:
-    src: files/september.conf.j2
+    src: templates/september.conf.j2
     dest: /usr/share/september/.env
 
 - name: Allow September to run on port 80
