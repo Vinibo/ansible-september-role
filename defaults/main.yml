@@ -1,4 +1,4 @@
 ---
-gemini_domain: "{{ hostname }}"
+proxy_gemini_domain: "{{ hostname }}"
 proxy_port: 80
 september_css:

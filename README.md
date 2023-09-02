@@ -14,11 +14,11 @@ Role Variables
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 ```yaml
 proxy_port: 80
-gemini_domain: ""
+proxy_gemini_domain: ""
 september_css: ""
 ```
 - `proxy_port`: Default value 80. Port on which the http proxy will listen
-- `gemini_domain`: No default value. The Gemini capsule to serve through the proxy. Do not include `gemini://` in the path. 
+- `proxy_gemini_domain`: No default value. The Gemini capsule to serve through the proxy. Do not include `gemini://` in the path. 
 - `september_css`: No default value. The CSS to apply when rendering your Gemini capsule through the proxy.
 
 Dependencies
