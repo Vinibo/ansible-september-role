@@ -35,6 +35,14 @@ Including an example of how to use your role (for instance, with variables passe
       roles:
          - { role: vinibo.september, gemini_domain: "geminispace.info" }
 
+Notes
+-----
+The September binaries are compiled on my own computer, using the `-r` flag and using `cross` for targeting other architectures.
+
+- armv7: `cross build -r --target arm-unknown-linux-gnueabihf`
+- aarch64: `cross build -r --target aarch64-unknown-linux-gnu`
+- riscv: `cross build -r --target riscv64gc-unknown-linux-gnu`
+
 License
 -------
 
